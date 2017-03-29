@@ -14,6 +14,7 @@
 		22624F081E8BC9370029A3FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22624F061E8BC9370029A3FE /* LaunchScreen.storyboard */; };
 		22624F131E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624F121E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift */; };
 		22624F1E1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624F1D1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift */; };
+		2267671B1E8BCE6900059C5F /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267671A1E8BCE6900059C5F /* Letter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		22624F191E8BC9370029A3FE /* NATO Phonetic FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NATO Phonetic FlashcardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22624F1D1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NATO_Phonetic_FlashcardsUITests.swift; sourceTree = "<group>"; };
 		22624F1F1E8BC9370029A3FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2267671A1E8BCE6900059C5F /* Letter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				22624F041E8BC9370029A3FE /* Assets.xcassets */,
 				22624F061E8BC9370029A3FE /* LaunchScreen.storyboard */,
 				22624F091E8BC9370029A3FE /* Info.plist */,
+				2267671A1E8BCE6900059C5F /* Letter.swift */,
 			);
 			path = "NATO Phonetic Flashcards";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2267671B1E8BCE6900059C5F /* Letter.swift in Sources */,
 				22624F001E8BC9370029A3FE /* ViewController.swift in Sources */,
 				22624EFE1E8BC9370029A3FE /* AppDelegate.swift in Sources */,
 			);
@@ -415,6 +419,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C734A7C7RH;
 				INFOPLIST_FILE = "NATO Phonetic Flashcards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -428,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = C734A7C7RH;
 				INFOPLIST_FILE = "NATO Phonetic Flashcards/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -514,6 +520,7 @@
 				22624F241E8BC9370029A3FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22624F251E8BC9370029A3FE /* Build configuration list for PBXNativeTarget "NATO Phonetic FlashcardsTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +529,7 @@
 				22624F271E8BC9370029A3FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22624F281E8BC9370029A3FE /* Build configuration list for PBXNativeTarget "NATO Phonetic FlashcardsUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +538,7 @@
 				22624F2A1E8BC9370029A3FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
