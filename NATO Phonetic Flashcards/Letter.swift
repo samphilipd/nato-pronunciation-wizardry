@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
-class Letter: NSObject {
+class Letter: NSObject, AVSpeechSynthesizerDelegate {
 
     // MARK: Properties
     let character: String
     let telephony: String
     let pronunciation: String
 
+    static var idx: Int = 0
+    static let speechSynthesizer = AVSpeechSynthesizer()
     static let letters = [
         "A": ["Alfa", "AL-FAH"],
         "B": ["Bravo", "BRAH-VOH"],
@@ -26,7 +29,7 @@ class Letter: NSObject {
         "H": ["Hotel", "HOH-TEL"],
         "I": ["India", "IN-DEE-AH"],
         "J": ["Juliet", "JEW-LEE-ETT"],
-        "K": ["Kilo", "KEY-LOH"],
+        "K": ["Kilo", "KEY-LO"],
         "L": ["Lima", "LEE-MAH"],
         "M": ["Mike", "MIKE"],
         "N": ["November", "NO-VEM-BER"],
@@ -46,8 +49,22 @@ class Letter: NSObject {
 
     static func randomLetter() -> Letter {
         let randomIndex: Int = Int(arc4random_uniform(UInt32(self.letters.count)))
-        let randomCharacter = Array(self.letters.keys)[randomIndex]
+        let randomCharacter = characters()[randomIndex]
         return Letter(character: randomCharacter)
+    }
+
+    static func nextLetter() -> Letter {
+        let nextCharacter = characters()[self.idx]
+        if self.idx + 1 == characters().count {
+            self.idx = 0
+        } else {
+            self.idx += 1
+        }
+        return Letter(character: nextCharacter)
+    }
+
+    static func characters() -> Array<String> {
+        return Array(self.letters.keys)
     }
 
     init(character: String) {
@@ -58,5 +75,28 @@ class Letter: NSObject {
         } else {
             fatalError("\"\(character)\" is not in range A-Z")
         }
+    }
+
+    func sayCharacter() {
+        if Letter.speechSynthesizer.isSpeaking {
+            return
+        }
+        let utterance:AVSpeechUtterance = AVSpeechUtterance(string: self.character.lowercased())
+        Letter.speechSynthesizer.speak(utterance)
+    }
+
+    func sayPronunciation() {
+        if Letter.speechSynthesizer.isSpeaking {
+            return
+        }
+        var string: String
+        switch self.character {
+            case "I", "U", "H", "E", "R", "N", "B", "S":
+                string = self.telephony
+            default:
+                string = self.pronunciation
+        }
+        let utterance:AVSpeechUtterance = AVSpeechUtterance(string: string)
+        Letter.speechSynthesizer.speak(utterance)
     }
 }

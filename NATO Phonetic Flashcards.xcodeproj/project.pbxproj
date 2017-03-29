@@ -15,6 +15,8 @@
 		22624F131E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624F121E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift */; };
 		22624F1E1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624F1D1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift */; };
 		2267671B1E8BCE6900059C5F /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267671A1E8BCE6900059C5F /* Letter.swift */; };
+		22848D5C1E8BE692002140DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624EFF1E8BC9370029A3FE /* ViewController.swift */; };
+		22848D5D1E8BE693002140DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624EFF1E8BC9370029A3FE /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22848D5C1E8BE692002140DC /* ViewController.swift in Sources */,
 				22624F131E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22848D5D1E8BE693002140DC /* ViewController.swift in Sources */,
 				22624F1E1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

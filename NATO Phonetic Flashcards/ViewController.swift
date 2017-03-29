@@ -8,20 +8,33 @@
 
 import UIKit
 
+enum State {
+    case character
+    case telephony
+}
+
 class ViewController: UIViewController {
+    static let initialState:State = .character
+
     private var letter: Letter
+    private var state: State
 
     required init?(coder aDecoder: NSCoder) {
+        self.state = ViewController.initialState
         letter = Letter.randomLetter()
         super.init(coder: aDecoder)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        showLetter()
+        setupInitialState()
+        setupLabels()
+        let audioIconImage:UIImage = UIImage(named: "Speaker")!
+        self.SpeakButton.setImage(audioIconImage, for: .normal)
+        self.SpeakButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
     }
 
+    @IBOutlet weak var SpeakButton: UIButton!
     @IBOutlet weak var LetterDisplay: UILabel!
     @IBOutlet weak var PronunciationDisplay: UILabel!
 
@@ -33,29 +46,62 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func NextButtonTapped(_ sender: UIButton) {
         nextLetter()
     }
 
-    func showLetter() {
-        self.LetterDisplay.text = letter.character
-        self.PronunciationDisplay.isHidden = true
-        self.PronunciationDisplay.text = letter.pronunciation
+    @IBAction func AudioButtonTapped(_ sender: UIButton) {
+        if isShowingCharacter() {
+            letter.sayCharacter()
+        } else {
+            letter.sayPronunciation()
+        }
+    }
+
+    func toggleState() {
+        if self.state == .character {
+            self.state = .telephony
+        } else {
+            self.state = .character
+        }
+    }
+
+    func isShowingCharacter() -> Bool {
+        return self.state == .character
+    }
+
+    func isShowingTelephony() -> Bool {
+        return self.state == .telephony
+    }
+
+    func mainLabelText() -> String {
+        if isShowingCharacter() {
+            return letter.character
+        } else {
+            return letter.telephony
+        }
     }
 
     func nextLetter() {
+        setupInitialState()
         self.letter = Letter.randomLetter()
-        showLetter()
+        setupLabels()
     }
 
     func toggleFlashcard() {
-        if self.LetterDisplay.text == self.letter.character {
-            self.LetterDisplay.text = self.letter.telephony
-            self.PronunciationDisplay.isHidden = false
-        } else {
-            self.LetterDisplay.text = self.letter.character
-            self.PronunciationDisplay.isHidden = true
-        }
+        toggleState()
+        setupLabels()
+    }
+
+    func setupInitialState() {
+        self.state = ViewController.initialState
+    }
+
+    func setupLabels() {
+        self.LetterDisplay.text = mainLabelText()
+        self.PronunciationDisplay.isHidden = isShowingCharacter()
+        self.PronunciationDisplay.text = letter.pronunciation
     }
 }
 
