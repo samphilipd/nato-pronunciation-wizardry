@@ -13,34 +13,35 @@ class Letter: NSObject {
     // MARK: Properties
     let character: String
     let telephony: String
+    let pronunciation: String
 
     static let letters = [
-        "A": "Alfa",
-        "B": "Bravo",
-        "C": "Charlie",
-        "D": "Delta",
-        "E": "Echo",
-        "F": "Foxtrot",
-        "G": "Golf",
-        "H": "Hotel",
-        "I": "India",
-        "J": "Juliet",
-        "K": "Kilo",
-        "L": "Lima",
-        "M": "Mike",
-        "N": "November",
-        "O": "Oscar",
-        "P": "Papa",
-        "Q": "Quebec",
-        "R": "Romeo",
-        "S": "Sierra",
-        "T": "Tango",
-        "U": "Uniform",
-        "V": "Victor",
-        "W": "Whiskey",
-        "X": "X-ray",
-        "Y": "Yankee",
-        "Z": "Zulu",
+        "A": ["Alfa", "AL-FAH"],
+        "B": ["Bravo", "BRAH-VOH"],
+        "C": ["Charlie", "CHAR-LEE"],
+        "D": ["Delta", "DELL-TAH"],
+        "E": ["Echo", "ECK-OH"],
+        "F": ["Foxtrot", "FOKS-TROT"],
+        "G": ["Golf", "GOLF"],
+        "H": ["Hotel", "HOH-TEL"],
+        "I": ["India", "IN-DEE-AH"],
+        "J": ["Juliet", "JEW-LEE-ETT"],
+        "K": ["Kilo", "KEY-LOH"],
+        "L": ["Lima", "LEE-MAH"],
+        "M": ["Mike", "MIKE"],
+        "N": ["November", "NO-VEM-BER"],
+        "O": ["Oscar", "OSS-CAH"],
+        "P": ["Papa", "PAH-PAH"],
+        "Q": ["Quebec", "KEH-BECK"],
+        "R": ["Romeo", "ROW-ME-OH"],
+        "S": ["Sierra", "SEE-AIR-RAH"],
+        "T": ["Tango", "TANG-GO"],
+        "U": ["Uniform", "YOU-NEE-FORM"],
+        "V": ["Victor", "VIK-TAH"],
+        "W": ["Whiskey", "WISS-KEY"],
+        "X": ["X-ray", "ECKS-RAY"],
+        "Y": ["Yankee", "YANG-KEY"],
+        "Z": ["Zulu", "ZOO-LOO"],
     ]
 
     static func randomLetter() -> Letter {
@@ -51,9 +52,9 @@ class Letter: NSObject {
 
     init(character: String) {
         self.character = character
-
-        if let telephony = Letter.letters[character] {
-            self.telephony = telephony
+        if let telephonyAndPronuncation = Letter.letters[character] {
+            self.telephony = telephonyAndPronuncation[0]
+            self.pronunciation = telephonyAndPronuncation[1]
         } else {
             fatalError("\"\(character)\" is not in range A-Z")
         }

@@ -19,11 +19,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        self.LetterDisplay.text = letter.character
+        showLetter()
     }
 
     @IBOutlet weak var LetterDisplay: UILabel!
+    @IBOutlet weak var PronunciationDisplay: UILabel!
 
     @IBAction func ScreenTapped(_ sender: UITapGestureRecognizer) {
         toggleFlashcard()
@@ -37,16 +37,24 @@ class ViewController: UIViewController {
         nextLetter()
     }
 
+    func showLetter() {
+        self.LetterDisplay.text = letter.character
+        self.PronunciationDisplay.isHidden = true
+        self.PronunciationDisplay.text = letter.pronunciation
+    }
+
     func nextLetter() {
         self.letter = Letter.randomLetter()
-        self.LetterDisplay.text = letter.character
+        showLetter()
     }
 
     func toggleFlashcard() {
         if self.LetterDisplay.text == self.letter.character {
             self.LetterDisplay.text = self.letter.telephony
+            self.PronunciationDisplay.isHidden = false
         } else {
             self.LetterDisplay.text = self.letter.character
+            self.PronunciationDisplay.isHidden = true
         }
     }
 }
