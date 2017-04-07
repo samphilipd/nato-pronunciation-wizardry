@@ -16,12 +16,14 @@ enum State {
 class ViewController: UIViewController {
     static let initialState:State = .character
 
+    private var alphabet: Alphabet
     private var letter: Letter
     private var state: State
 
     required init?(coder aDecoder: NSCoder) {
         self.state = ViewController.initialState
-        letter = Letter.randomLetter()
+        self.alphabet = Alphabet()
+        self.letter = alphabet.nextLetter()
         super.init(coder: aDecoder)
     }
 
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupInitialState()
         setupLabels()
+        setupButton()
         let audioIconImage:UIImage = UIImage(named: "Speaker")!
         self.SpeakButton.setImage(audioIconImage, for: .normal)
         self.SpeakButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
@@ -37,6 +40,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var SpeakButton: UIButton!
     @IBOutlet weak var LetterDisplay: UILabel!
     @IBOutlet weak var PronunciationDisplay: UILabel!
+    @IBOutlet weak var ModeButton: UIButton!
 
     @IBAction func ScreenTapped(_ sender: UITapGestureRecognizer) {
         toggleFlashcard()
@@ -46,7 +50,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func NextButtonTapped(_ sender: UIButton) {
         nextLetter()
     }
@@ -57,6 +61,11 @@ class ViewController: UIViewController {
         } else {
             letter.sayPronunciation()
         }
+    }
+
+    @IBAction func ModeButtonTapped(_ sender: UIButton) {
+        alphabet.switchMode()
+        setupButton()
     }
 
     func toggleState() {
@@ -85,7 +94,7 @@ class ViewController: UIViewController {
 
     func nextLetter() {
         setupInitialState()
-        self.letter = Letter.randomLetter()
+        self.letter = self.alphabet.nextLetter()
         setupLabels()
     }
 
@@ -102,6 +111,10 @@ class ViewController: UIViewController {
         self.LetterDisplay.text = mainLabelText()
         self.PronunciationDisplay.isHidden = isShowingCharacter()
         self.PronunciationDisplay.text = letter.pronunciation
+    }
+
+    func setupButton() {
+        self.ModeButton.setTitle(self.alphabet.humanReadableMode(), for: .normal)
     }
 }
 

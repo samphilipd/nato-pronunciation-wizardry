@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		225108D31E97FB3800A83938 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225108D21E97FB3800A83938 /* Alphabet.swift */; };
+		225108D71E97FDC400A83938 /* Array+shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225108D61E97FDC400A83938 /* Array+shuffle.swift */; };
+		225108D81E98058900A83938 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225108D21E97FB3800A83938 /* Alphabet.swift */; };
+		225108D91E98058A00A83938 /* Alphabet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225108D21E97FB3800A83938 /* Alphabet.swift */; };
+		225108DA1E98058C00A83938 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267671A1E8BCE6900059C5F /* Letter.swift */; };
+		225108DB1E98058C00A83938 /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2267671A1E8BCE6900059C5F /* Letter.swift */; };
 		22624EFE1E8BC9370029A3FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624EFD1E8BC9370029A3FE /* AppDelegate.swift */; };
 		22624F001E8BC9370029A3FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22624EFF1E8BC9370029A3FE /* ViewController.swift */; };
 		22624F031E8BC9370029A3FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22624F011E8BC9370029A3FE /* Main.storyboard */; };
@@ -37,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		225108D21E97FB3800A83938 /* Alphabet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alphabet.swift; sourceTree = "<group>"; };
+		225108D61E97FDC400A83938 /* Array+shuffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+shuffle.swift"; sourceTree = "<group>"; };
 		22624EFA1E8BC9370029A3FE /* NATO Phonetic Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NATO Phonetic Flashcards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22624EFD1E8BC9370029A3FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22624EFF1E8BC9370029A3FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		225108D51E97FD9A00A83938 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				225108D61E97FDC400A83938 /* Array+shuffle.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		22624EF11E8BC9360029A3FE = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +117,7 @@
 		22624EFC1E8BC9370029A3FE /* NATO Phonetic Flashcards */ = {
 			isa = PBXGroup;
 			children = (
+				225108D51E97FD9A00A83938 /* Extensions */,
 				22624EFD1E8BC9370029A3FE /* AppDelegate.swift */,
 				22624EFF1E8BC9370029A3FE /* ViewController.swift */,
 				22624F011E8BC9370029A3FE /* Main.storyboard */,
@@ -108,6 +125,7 @@
 				22624F061E8BC9370029A3FE /* LaunchScreen.storyboard */,
 				22624F091E8BC9370029A3FE /* Info.plist */,
 				2267671A1E8BCE6900059C5F /* Letter.swift */,
+				225108D21E97FB3800A83938 /* Alphabet.swift */,
 			);
 			path = "NATO Phonetic Flashcards";
 			sourceTree = "<group>";
@@ -267,6 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225108D31E97FB3800A83938 /* Alphabet.swift in Sources */,
+				225108D71E97FDC400A83938 /* Array+shuffle.swift in Sources */,
 				2267671B1E8BCE6900059C5F /* Letter.swift in Sources */,
 				22624F001E8BC9370029A3FE /* ViewController.swift in Sources */,
 				22624EFE1E8BC9370029A3FE /* AppDelegate.swift in Sources */,
@@ -277,8 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225108D81E98058900A83938 /* Alphabet.swift in Sources */,
 				22848D5C1E8BE692002140DC /* ViewController.swift in Sources */,
 				22624F131E8BC9370029A3FE /* NATO_Phonetic_FlashcardsTests.swift in Sources */,
+				225108DA1E98058C00A83938 /* Letter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,8 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				225108D91E98058A00A83938 /* Alphabet.swift in Sources */,
 				22848D5D1E8BE693002140DC /* ViewController.swift in Sources */,
 				22624F1E1E8BC9370029A3FE /* NATO_Phonetic_FlashcardsUITests.swift in Sources */,
+				225108DB1E98058C00A83938 /* Letter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

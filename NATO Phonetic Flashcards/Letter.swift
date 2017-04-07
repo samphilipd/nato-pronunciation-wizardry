@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class Letter: NSObject, AVSpeechSynthesizerDelegate {
-
     // MARK: Properties
     let character: String
     let telephony: String
@@ -46,26 +45,6 @@ class Letter: NSObject, AVSpeechSynthesizerDelegate {
         "Y": ["Yankee", "YANG-KEY"],
         "Z": ["Zulu", "ZOO-LOO"],
     ]
-
-    static func randomLetter() -> Letter {
-        let randomIndex: Int = Int(arc4random_uniform(UInt32(self.letters.count)))
-        let randomCharacter = characters()[randomIndex]
-        return Letter(character: randomCharacter)
-    }
-
-    static func nextLetter() -> Letter {
-        let nextCharacter = characters()[self.idx]
-        if self.idx + 1 == characters().count {
-            self.idx = 0
-        } else {
-            self.idx += 1
-        }
-        return Letter(character: nextCharacter)
-    }
-
-    static func characters() -> Array<String> {
-        return Array(self.letters.keys)
-    }
 
     init(character: String) {
         self.character = character
