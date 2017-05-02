@@ -10,7 +10,7 @@ import Foundation
 
 extension MutableCollection where Indices.Iterator.Element == Index {
     /// Shuffles the contents of this collection.
-    mutating func shuffle() {
+    public mutating func shuffle() {
         let c = count
         guard c > 1 else { return }
 
